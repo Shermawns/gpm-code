@@ -1,24 +1,24 @@
 <?php
-/**
- * GPM Dashboard - Tela de Login
- * Interface visual de login (sem autenticação real para demonstração)
- */
+
 session_start();
 
-// Se já houver uma sessão ativa, redireciona para o dashboard
 if (isset($_SESSION['logged_in'])) {
     header('Location: dashboard.php');
     exit;
 }
 
-// Processa o formulário de login
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Simulação de login - aceita qualquer usuário/senha
+    
+
     $_SESSION['logged_in'] = true;
     $_SESSION['usuario'] = $_POST['usuario'] ?? 'Gestor';
     header('Location: dashboard.php');
     exit;
+
+
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -31,7 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body class="login-page">
     <div class="login-container">
         <div class="login-box">
-            <!-- Logo e cabeçalho -->
             <div class="login-header">
                 <div class="logo">
                     <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
@@ -43,7 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p>Sistema de Gestão de Produtividade</p>
             </div>
 
-            <!-- Formulário de login -->
             <form method="POST" action="" class="login-form">
                 <div class="form-group">
                     <label for="usuario">Usuário</label>
@@ -71,7 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             </form>
 
-            <!-- Rodapé -->
             <div class="login-footer">
                 <p>&copy; 2024 GPM Soluções - Gestão Operacional</p>
             </div>

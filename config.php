@@ -1,20 +1,12 @@
 <?php
-/**
- * GPM Dashboard - Arquivo de Configuração
- * Gerencia a conexão com o banco de dados PostgreSQL via Docker
- */
 
-// Configurações do banco de dados (baseadas no seu docker-compose.yml)
-$db_host = 'db';           // <-- CORRETO: O nome do serviço 'db' no Docker
-$db_port = '5432';         // <-- CORRETO: A porta INTERNA do contêiner
-$db_name = 'gpm';          // <-- SEU BANCO
-$db_user = 'postgres';     // <-- SEU USUÁRIO (ATUALIZADO)
-$db_pass = 'admin';        // <-- SUA SENHA (ATUALIZADA)
+$db_host = 'db';           
+$db_port = '5432';     
+$db_name = 'gpm';       
+$db_user = 'postgres';    
+$db_pass = 'admin';       
 
-/**
- * Função para estabelecer conexão com o banco de dados PostgreSQL usando PDO
- * Retorna o objeto PDO ou exibe erro em caso de falha
- */
+
 function getConnection() {
     global $db_host, $db_port, $db_name, $db_user, $db_pass;
 
@@ -30,9 +22,7 @@ function getConnection() {
     }
 }
 
-/**
- * Função auxiliar para retornar dados em formato JSON
- */
+
 function jsonResponse($data, $statusCode = 200) {
     http_response_code($statusCode);
     header('Content-Type: application/json; charset=utf-8');

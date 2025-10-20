@@ -5,7 +5,6 @@
 }
 
 :root {
-    /* Cores principais */
     --primary: #4A90E2;
     --primary-dark: #357ABD;
     --secondary: #6C757D;
@@ -13,19 +12,19 @@
     --warning: #FFC107;
     --danger: #DC3545;
     
-    /* Cores neutras */
+    
     --bg-body: #F5F7FA;
     --bg-card: #FFFFFF;
     --text-primary: #2C3E50;
     --text-secondary: #6C757D;
     --border: #DEE2E6;
     
-    /* Sombras */
+  
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
     
-    /* Espaçamentos */
+   
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
@@ -41,7 +40,6 @@ body {
     min-height: 100vh;
 }
 
-/* ===== Tela de Login ===== */
 .login-page {
     display: flex;
     align-items: center;
@@ -126,7 +124,6 @@ body {
     font-size: 0.85rem;
 }
 
-/* ===== Header do Dashboard ===== */
 .header {
     background: var(--bg-card);
     box-shadow: var(--shadow-sm);
@@ -170,7 +167,6 @@ body {
     font-weight: 500;
 }
 
-/* ===== Container e Grid ===== */
 .container {
     max-width: 1400px;
     margin: 0 auto;
@@ -189,7 +185,6 @@ main.container {
     margin-top: var(--spacing-lg);
 }
 
-/* ===== Cards ===== */
 .card {
     background: var(--bg-card);
     border-radius: 12px;
@@ -216,7 +211,6 @@ main.container {
     grid-column: 1 / -1;
 }
 
-/* ===== Formulários ===== */
 .form-servico .form-group {
     margin-bottom: var(--spacing-md);
 }

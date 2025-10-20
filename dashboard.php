@@ -1,33 +1,24 @@
 <?php
-/**
- * GPM Dashboard - Painel Principal
- * Exibe gráficos, formulário de registro e listagem de equipes
- */
 session_start();
 require_once 'config.php';
 
-// Verifica se o usuário está logado
 if (!isset($_SESSION['logged_in'])) {
     header('Location: index.php');
     exit;
 }
 
-// --- INÍCIO DA CORREÇÃO (SINTAXE PDO) ---
 
-$conn = getConnection(); // $conn agora é um objeto PDO
+$conn = getConnection();
 
-// Busca dados de produtividade das equipes
 $sql = "SELECT * FROM vw_produtividade ORDER BY nome";
-$stmt = $conn->query($sql); // 1. query() em PDO retorna um PDOStatement
-$equipes = $stmt->fetchAll(PDO::FETCH_ASSOC); // 2. fetchAll() busca todos os dados de uma vez
+$stmt = $conn->query($sql);
+$equipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Busca lista de equipes para o formulário
 $sqlEquipes = "SELECT id, nome FROM equipes ORDER BY nome";
-$resultEquipes = $conn->query($sqlEquipes); // 3. $resultEquipes agora é um PDOStatement
+$resultEquipes = $conn->query($sqlEquipes); 
 
-$conn = null; // 4. Em PDO, fechamos a conexão definindo-a como null
+$conn = null;
 
-// --- FIM DA CORREÇÃO ---
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -61,7 +52,9 @@ $conn = null; // 4. Em PDO, fechamos a conexão definindo-a como null
     </header>
 
     <main class="container">
-        <div id="message" class="message" style="display: none;"></div>
+        <div id="message" class="message" style="display: none;">
+            
+        </div>
 
         <div class="dashboard-grid">
             <section class="card">
@@ -167,10 +160,8 @@ $conn = null; // 4. Em PDO, fechamos a conexão definindo-a como null
     </main>
 
     <script>
-        // NENHUMA MUDANÇA AQUI - $equipes já está sendo populado corretamente
         const dadosEquipes = <?php echo json_encode($equipes); ?>;
 
-        // Configuração do gráfico de barras
         const ctx = document.getElementById('chartProdutividade').getContext('2d');
         const chart = new Chart(ctx, {
             type: 'bar',
@@ -217,6 +208,7 @@ $conn = null; // 4. Em PDO, fechamos a conexão definindo-a como null
                 }
             }
         });
+
 
         // Manipulação do formulário via AJAX
         document.getElementById('formServico').addEventListener('submit', async function(e) {
